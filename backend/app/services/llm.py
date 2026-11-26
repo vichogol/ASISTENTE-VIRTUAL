@@ -11,6 +11,8 @@ def client() -> AsyncOpenAI:
         _client = AsyncOpenAI(
             base_url=settings.freellmapi_base_url,
             api_key=settings.freellmapi_api_key or "dummy",
+            timeout=4.0,
+            max_retries=0,
         )
     return _client
 

@@ -1,26 +1,6 @@
-# Base de conocimiento (preguntas frecuentes)
 
-## Dónde subir el Excel
-Coloca el archivo en:
+# Fuentes municipales
 
-```
-data/raw/preguntas_frecuentes_penalolen.xlsx
-```
+`raw/preguntas_frecuentes_penalolen.xlsx` conserva el archivo municipal original. La hoja visible «Revisdas» contiene 843 fichas y es la referencia preferida. La hoja oculta «preguntasfrecuentes» aporta 191 fichas activas de referencia histórica. La hoja oculta «Hoja1» contiene nombres de dependencias y carece de preguntas y respuestas.
 
-## Formato esperado (columnas)
-| Columna | Tipo | Notas |
-|---|---|---|
-| preguntaFrecuenteID | int/str | Identificador único |
-| categoriaPreguntaFrecuente | str | Categoría del trámite |
-| nombrePreguntaFrecuente | str | Título corto de la pregunta |
-| descripcionPreguntaFrecuente | str | Respuesta detallada |
-| tagPreguntaFrecuente | str | Tags separados por coma |
-| Direccion | str | Dependencia/ubicación a la que acudir |
-| Rango Etáreo | str | Rango de edad aplicable (ej. "18-65", "Todos") |
-| Sexo | str | "M", "F", "Todos" |
-
-## Reglas
-- Un archivo por versión; no editar en producción, se re-ingesta.
-- Sin datos personales.
-- Encoding UTF-8 al exportar a CSV si aplica.
-- No renombrar columnas sin avisar (rompe el pipeline de ingesta).
+La base SQLite de interacciones y el índice semántico opcional se generan en `processed/`, excluido de Git. Las reglas de derivación y los recintos con dirección y coordenadas trazables están en `backend/app/services/municipal.py`.
