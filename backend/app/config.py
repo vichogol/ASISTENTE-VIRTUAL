@@ -18,6 +18,11 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:5173"
 
     top_k: int = 5
+    faq_path: str = ""
+    semantic_search: bool = False
+    ai_summary_enabled: bool = False
+    learning_enabled: bool = True
+    learning_path: str = ""
 
 
 settings = Settings()

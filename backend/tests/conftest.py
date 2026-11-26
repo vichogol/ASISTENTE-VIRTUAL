@@ -10,6 +10,9 @@ os.environ.setdefault("TURNSTILE_ENABLED", "false")
 os.environ.setdefault("TURNSTILE_SECRET_KEY", "")
 os.environ.setdefault("FREELLMAPI_API_KEY", "test-key")
 os.environ.setdefault("RATE_LIMIT", "30/minute")
+os.environ["LEARNING_ENABLED"] = "false"
+os.environ["SEMANTIC_SEARCH"] = "false"
+os.environ["AI_SUMMARY_ENABLED"] = "false"
 os.environ.setdefault("CORS_ORIGINS", "http://localhost:5173")
 
 import pytest  # noqa: E402

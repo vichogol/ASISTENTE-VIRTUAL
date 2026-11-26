@@ -17,3 +17,9 @@ frontend/.env
 # OS
 .DS_Store
 Thumbs.db
+
+# Local tests and frontend configuration
+.pytest_cache/
+backend/.coverage
+frontend/.env.*
+!frontend/.env.example

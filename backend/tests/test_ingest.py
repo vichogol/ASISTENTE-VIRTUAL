@@ -42,3 +42,13 @@ def test_is_active(ingest, valor, esperado):
 def test_is_active_serie_pandas(ingest):
     serie = pd.Series([1, 0, None, float("nan")])
     assert [ingest.is_active(v) for v in serie] == [True, False, True, True]
+
+
+def test_official_workbook_includes_reviewed_and_legacy_faqs():
+    from collections import Counter
+    from app.services.rag import get_index
+
+    records = get_index().faqs
+    assert Counter(faq.sheet for faq in records.values()) == {"Revisdas": 843, "preguntasfrecuentes": 191}
+    assert records["Revisdas:1"].reviewed
+    assert not records["preguntasfrecuentes:1"].reviewed
